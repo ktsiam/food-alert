@@ -78,10 +78,10 @@ h1 {
    font-weight: 900;
 }
 
-/*@keyframes flash {
+@keyframes flash {
     from {color: red;}
     to {color: black;}
-}*/
+}
 
 .column {
    float : left;
