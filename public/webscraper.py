@@ -38,7 +38,7 @@ lines = text.splitlines()
 for line in lines:
 	if "--" in line:
 		start = 1
-	if start == 1:
+	if start == 1 and "--" not in line and "*" not in line and "  " not in line and not line == " " and "FoodPro" not in line:
 		if not line == "" :
 			foods.append(line)
 
