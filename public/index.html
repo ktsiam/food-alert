@@ -14,8 +14,6 @@
       <div class="search">
           <input type="text" id="myInput" onkeyup="searchSort()" placeholder="Search for food..">
           <ul id="foodList">
-            <li><a id="1" onclick="selectFood(this)">Adele</a></li>
-            <li><a id="2" onclick="selectFood(this)">Agnes</a></li>
           </ul>
       </div>
     </div>
@@ -33,7 +31,7 @@
       <div class="submitButton">
         <form method="post">
           <input id="email" type="text" class="textbox" placeholder="Email">
-          <input title="Search" value="SUBMIT" onclick="finish(this)" type="submit" class="button">
+          <input title="Search" value="SUBMIT" onclick="finish(this)" class="button"> <!--type="submit"-->
         </form>
       </div>
     </div>
@@ -56,11 +54,25 @@
   function finish(child)
   {
        email = document.getElementById("email").value;
+       ul =document.getElementById("selectedFood");
+       li = ul.getElementsByTagName("li");
+
+       foodList = []
+       for (i = 0; i < li.length; ++i){
+            a = li[i].getElementsByTagName("a")[0];
+
+            foodList.push({ _id: a.id, foodName: a.innerHTML });
+
+     }
+          s = []
+          s.push({ mail: email, foods: foodList });
+          s = JSON.stringify(s);
+
+          console.log(s);
+
+
+          document.getElementsByTagName("h1")[0].innerHTML = "SUCCESS!";
   }
-
-
-
-
 
 
 
@@ -79,12 +91,6 @@
 
      element.parentNode.remove();
     }
-
-
-
-
-
-
 
 
 
