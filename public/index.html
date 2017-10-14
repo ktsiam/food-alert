@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
   </head>
   <body>
 
@@ -38,21 +39,30 @@
       </div>
     </div>
 
-
 <script>
 
 //  jsonData = '[ {"_id": "1234455667","foodName" : "chicken tendies" },{"_id": "1111111111","foodName" : "hashbrowns"}]';
 
-  function initData(data)
-  {
-     s = "";
-     for (i = 0; i < data.length; ++i) {
-         s += "<li><a id=" + data[i]._id + " onclick='selectFood(this)'>";
-         s += data[i].foodName + "</a></li>";
-     }
-     document.getElementById("foodList").innerHTML += s;
-  }
+initData();
 
+  function initData()
+  {
+
+var data;
+$.getJSON("dewickfoods.json", function(val) {
+analyze(val);
+});
+
+}
+
+ function analyze(data){
+s = "";
+     for (i = 0; i < data.length; ++i) {
+         s += "<li><a id=" + (i+100) + " onclick='selectFood(this)'>";
+                     s += data[i] + "</a></li>";
+                     }
+     document.getElementById("foodList").innerHTML += s;
+}
   function finish(child)
   {
        email = document.getElementById("email").value;
@@ -70,7 +80,12 @@
           s.push({ mail: email, foods: foodList });
           s = JSON.stringify(s);
 
-          console.log(s);
+          $.getJSON("userData.json", function(val) {
+                       val.push(s);
+                       val = JSON.stringify(val);
+                       $.post("userData.json", {val: val}, function(response){});
+                       console.log(val);
+          });
 
 
           document.getElementsByTagName("h1")[0].innerHTML = "SUCCESS!";
@@ -95,14 +110,6 @@
     }
 
 
-
-      fetch('http://localhost:3000/menu', {
-    method: 'get'
-}).then(function(response){
-    response.json().then(function(data){
-        initData(data);
-    })
-});
 
 
       function searchSort() {
