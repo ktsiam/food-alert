@@ -82,7 +82,24 @@
     }
     }
     }
+
+
+fetch('http://localhost:3000/menu', {
+    method: 'get'
+}).then(function(response){
+    response.json().then(function(data){
+        console.log(data);
+    })
+});
+
+function submit(preference){
+fetch('http://localhost:3000/submit', {
+    method: 'post'
+    body: JSON.stringify();
+}).then(function(response) {
     
+}
+
 
 </script>
 
