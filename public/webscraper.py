@@ -9,36 +9,17 @@ response = urllib2.urlopen(url)
 
 soup = BeautifulSoup(response, 'html.parser')
 table = soup.find_all('a', attrs={'name', 'Recipe_Desc'})
-#table = soup.select('a')
 
-#soup = BeautifulSoup('<a name="Recipe_Desc" onMouseOver="javascript:openDescWin('','Breakfast Egg & Ham Burrito')" onMouseOut="javascript:closeDescWin()">Breakfast Egg & Ham Burrito</a>')
-#soup.a['name'] = ['Recipe_Desc', 'contents']
-
-#print table.prettify()
-#for row in table.findAll('td'):
-#for name in table:
-	#print name.prettify()
-#print table.prettify()
-#print soup;
-#if text.find("-") == -1:
 dashcounter = 0
 text = (soup.get_text())
-#for word in text.split():
-#	if word == "**MENU":
-#		break
-#	if word == "--":
-#		dashcounter = dashcounter + 1;
-#	if not(dashcounter == 1 or dashcounter == 2):
-#		print word;
-#	if dashcounter == 2:
-#		dashcounter = 0
+
 start = 0
 foods = []
 lines = text.splitlines()
 for line in lines:
 	if "--" in line:
 		start = 1
-	if start == 1 and "--" not in line and "*" not in line and "  " not in line and not line == " " and "FoodPro" not in line:
+	if start == 1 and "--" not in line and "*" not in line and "  " not in line and not line == " " and "FoodPro" not in line and not line == u"\u00A0":
 		if not line == "" :
 			foods.append(line)
 
@@ -50,3 +31,4 @@ for food in foods:
 
 with open('dewickfoods.json', 'w') as outfile:
 	json.dump(foods, outfile)
+
