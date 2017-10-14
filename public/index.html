@@ -2,38 +2,38 @@
 <html>
   <head>
     <title>food</title>
-    <meta charset="utf-8">    
+    <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    
+
     <h1>FOOD ALERT!</h1>
-    
+
     <div class="column">
-      <div class="search">         
-          <input type="text" id="myInput" onkeyup="searchSort()" placeholder="Search for food..">          
+      <div class="search">
+          <input type="text" id="myInput" onkeyup="searchSort()" placeholder="Search for food..">
           <ul id="foodList">
             <li><a id="1" onclick="selectFood(this)">Adele</a></li>
             <li><a id="2" onclick="selectFood(this)">Agnes</a></li>
           </ul>
       </div>
     </div>
-    
+
    <div class="column">
      <div class="selection">
        <ul id="selectedFood">
        </ul>
      </div>
    </div>
-    
 
-    
+
+
     <div class="column">
       <div class="submitButton">
         <form method="post">
           <input id="email" type="text" class="textbox" placeholder="Email">
-          <input title="Search" value="SUBMIT" onclick="finish(this)"  class="button"> //type="submit"
+          <input title="Search" value="SUBMIT" onclick="finish(this)" type="submit" class="button">
         </form>
       </div>
     </div>
@@ -44,7 +44,7 @@
 //  jsonData = '[ {"_id": "1234455667","foodName" : "chicken tendies" },{"_id": "1111111111","foodName" : "hashbrowns"}]';
 
   function initData(data)
-  {     
+  {
      s = "";
      for (i = 0; i < data.length; ++i) {
          s += "<li><a id=" + data[i]._id + " onclick='selectFood(this)'>";
@@ -62,11 +62,11 @@
 
 
 
-  
+
 
     function selectFood(el) {
         var element = document.getElementById(el.id);
-        document.getElementById("selectedFood").innerHTML += 
+        document.getElementById("selectedFood").innerHTML +=
 "<li><a id='" + el.id + "' onclick='unselectFood(this)'>" + element.innerHTML + "</a></li>";
 
         element.parentNode.remove();
@@ -92,7 +92,7 @@
     method: 'get'
 }).then(function(response){
     response.json().then(function(data){
-        initData(data);             
+        initData(data);
     })
 });
 
@@ -104,7 +104,7 @@
       filter = input.value.toUpperCase();
       ul = document.getElementById("foodList");
       li = ul.getElementsByTagName('li');
-      
+
       // Loop through all list items, and hide those who don't match the search query
       for (i = 0; i < li.length; i++) {
                       a = li[i].getElementsByTagName("a")[0];
@@ -115,7 +115,7 @@
     }
     }
     }
-    
+
 
 </script>
 

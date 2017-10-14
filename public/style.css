@@ -1,4 +1,4 @@
-.search {  
+.search {
   padding-left: 15%;
   padding-top: 30px;
 }
@@ -10,7 +10,7 @@
 #myInput {
 //    background-image: url('searchicon.png'); /* Add a search icon to input */
     background-position: 205px 16px; /* Position the search icon */
-    background-repeat: no-repeat; /* Do not repeat the icon image */        
+    background-repeat: no-repeat; /* Do not repeat the icon image */
     padding: 12px 20px 12px 40px; /* Add some padding */
     border : 0;
 
@@ -21,7 +21,7 @@
   color: #212121;
   border: 1px solid #ddd
   float: left;
- 
+
 }
 
 #foodList li a {
@@ -66,7 +66,7 @@
 h1 {
    text-align  : center;
    font-size : 64px;
-   padding-top : 20px;           
+   padding-top : 20px;
    padding-bottom : 30px;
    text-color: red;
    animation-name: flash;
@@ -84,8 +84,8 @@ h1 {
 }*/
 
 .column {
-   float : left;   
-   width : 20%      
+   float : left;
+   width : 20%
 }
 
 #foodList {
@@ -97,7 +97,7 @@ h1 {
 #selectedFood {
      list-style-type: none;
     padding: 0;
-}             
+}
 
 body {
        background: url('http://i.hizliresim.com/v4Qykv.png') no-repeat center center fixed;
