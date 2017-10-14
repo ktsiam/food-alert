@@ -36,12 +36,14 @@ text = (soup.get_text())
 foods = []
 lines = text.splitlines()
 for line in lines:
-	if not line == "":
+	if not line == "" :
 		foods.append(line)
-		print line
+
+for food in foods:
+	print(food)
 #lines = [x for x in lines if (x != "" or "  " not in x) ]
 #for line in lines:
 	#print("[" + line + "]")
 
-#with open('dewickfoods.json', 'w') as outfile:
-	#json.dump(lines, outfile)
+with open('dewickfoods.json', 'w') as outfile:
+	json.dump(lines, outfile)
