@@ -46,4 +46,4 @@ for food in foods:
 	#print("[" + line + "]")
 
 with open('dewickfoods.json', 'w') as outfile:
-	json.dump(lines, outfile)
+	json.dump(food, outfile)
