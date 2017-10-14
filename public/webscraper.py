@@ -32,12 +32,15 @@ text = (soup.get_text())
 #		print word;
 #	if dashcounter == 2:
 #		dashcounter = 0
-
+start = 0
 foods = []
 lines = text.splitlines()
 for line in lines:
-	if not line == "" :
-		foods.append(line)
+	if "--" in line:
+		start = 1
+	if start == 1:
+		if not line == "" :
+			foods.append(line)
 
 for food in foods:
 	print(food)
@@ -46,4 +49,4 @@ for food in foods:
 	#print("[" + line + "]")
 
 with open('dewickfoods.json', 'w') as outfile:
-	json.dump(food, outfile)
+	json.dump(foods, outfile)
