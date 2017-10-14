@@ -1,0 +1,23 @@
+{
+  "name": "food-alert",
+  "version": "1.0.0",
+  "description": "Notify subscribers when particular foods are available at the dining halls",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ktsiam/food-alert.git"
+  },
+  "author": "Martin, Kostas, Angela",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ktsiam/food-alert/issues"
+  },
+  "homepage": "https://github.com/ktsiam/food-alert#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongodb": "^2.2.33"
+  }
+}
