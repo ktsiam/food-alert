@@ -55,22 +55,22 @@
   {
        email = document.getElementById("email").value;
        ul =document.getElementById("selectedFood");
-       li = ul.getElementsByTagName("li");            
-       
+       li = ul.getElementsByTagName("li");
+
        foodList = []
        for (i = 0; i < li.length; ++i){
             a = li[i].getElementsByTagName("a")[0];
-            
+
             foodList.push({ _id: a.id, foodName: a.innerHTML });
 
      }
           s = []
           s.push({ mail: email, foods: foodList });
           s = JSON.stringify(s);
-          
+
           console.log(s);
 
-   
+
           document.getElementsByTagName("h1")[0].innerHTML = "SUCCESS!";
   }
 
