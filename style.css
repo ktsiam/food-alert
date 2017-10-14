@@ -1,3 +1,38 @@
+#myUL li a {
+    border: 1px solid #ddd; /* Add a border to all links */
+    margin-top: -1px; /* Prevent double borders */
+    background-color: #f6f6f6; /* Grey background color */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove default text underline */
+    font-size: 18px; /* Increase the font-size */
+    color: black; /* Add a black text color */
+    display: block; /* Make it into a block element to fill the whole list */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 h1 {
    text-align  : center;
    font-size : 64px;
@@ -10,7 +45,7 @@ h1 {
    animation-iteration-count: infinite;
    animation-direction: alternate;
    animation-play-state: running;
-font-weight: 900;
+   font-weight: 900;
 }
 
 /*@keyframes flash {
@@ -18,111 +53,22 @@ font-weight: 900;
     to {color: black;}
 }*/
 
-body {
-  background: url('http://i.hizliresim.com/v4Qykv.png') no-repeat center center fixed;
-  background-size: cover;
-  font-family: 'Roboto', Tahoma, Arial, sans-serif;
-  line-height: 1.5;
-  font-size: 13px;
-}
-
-form {
-  outline: 0;
-  float: left;
-  border-radius: 4px;
-}
-
-form > .textbox {
-  outline: 0;
-  height: 50px;
-  width: 250px;
-  line-height: 42px;
-  padding: 0 16px;
-  background-color: rgba(255, 255, 255, 0.8);
-  color: #212121;
-  border: 0;
-  float: left;
-}
-
-form > .textbox:focus {
-  outline: 0;
-  background-color: #FFF;
-}
-
-form > .button {
-  outline: 0;
-  background-color: rgba(38, 50, 56, 0.8);
-  height: 50px;
-  width: 50px;
-  text-align: center;
-  line-height: 42px;
-  border: 0;
-  color: #FFF;
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: 16px;
-}
-
-form > .button:hover {
-      background-color: rgba(0, 150, 136, 0.8);
-}
-
-.search {  
-/*  padding-left: 15%;
-  padding-top: 50px;*
-}
-
-.submitButton {
-/*  padding-left: 35%;
-  padding-top: 30%;*/
-}
-
 .column {
-   float : left;
-   width : 20%
-      
+   float : left;   
+   width : 20%      
 }
 
-
-
-#myInput {
-    background-image: url('searchicon.png'); /* Add a search icon to input */
-    background-position: 205px 16px; /* Position the search icon */
-    background-repeat: no-repeat; /* Do not repeat the icon image */    
-    font-size: 16px;
-    font: normal normal normal 14px/1 FontAwesome;
-    padding: 12px 20px 12px 40px; /* Add some padding */
-    border : 0
-
-  outline: 0;
-  height: 50px;
-  width: 250px;
-  line-height: 42px;
-  padding: 0 16px;
-  background-color: rgba(255, 255, 255, 0.8);
-  color: #212121;
-  border: 0;
-  float: left; 
-        
-}
-
-#myUL {
-    /* Remove default list styling */
+#foodList {
     list-style-type: none;
     padding: 0;
-    margin: 0;
 }
 
-#myUL li a {
-    border: 1px solid #ddd; /* Add a border to all links */
-    margin-top: -1px; /* Prevent double borders */
-    background-color: #f6f6f6; /* Grey background color */
-    padding: 12px; /* Add some padding */
-    text-decoration: none; /* Remove default text underline */
-    font-size: 18px; /* Increase the font-size */
-    color: black; /* Add a black text color */
-    display: block; /* Make it into a block element to fill the whole list */
-}
+#selectedFood {
+     list-style-type: none;
+    padding: 0;
+}             
 
-#myUL li a:hover:not(.header) {
-    background-color: #eee; /* Add a hover effect to all links, except for headers */
+body {
+       background: url('http://i.hizliresim.com/v4Qykv.png') no-repeat center center fixed;
+       font-family: 'Roboto', Tahoma, Arial, sans-serif;
 }
