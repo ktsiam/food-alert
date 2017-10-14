@@ -22,10 +22,10 @@
     </div>
 
    <div class="column">
-     <div class="selection">
-       <ul id="selectedFood">
-       </ul>
-     </div>
+       <div class="selection">
+         <ul id="selectedFood">
+         </ul>
+       </div>
    </div>
 
 
@@ -80,10 +80,12 @@ s = "";
           s.push({ mail: email, foods: foodList });
           s = JSON.stringify(s);
 
-          $.getJSON("userData.json", function(val) {
+             
+          $.getJSON("userData.json", function(val) {                       
                        val.push(s);
                        val = JSON.stringify(val);
-                       $.post("userData.json", {val: val}, function(response){});
+                       $("userData.json").replaceWith(val);
+                       
                        console.log(val);
           });
 
