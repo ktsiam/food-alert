@@ -21,29 +21,55 @@
     </div>
     
    <div class="column">
+     <div class="selection">
        <ul id="selectedFood">
        </ul>
+     </div>
    </div>
     
 
+    
+    <div class="column">
+      <div class="submitButton">
+        <form method="post">
+          <input id="email" type="text" class="textbox" placeholder="Email">
+          <input title="Search" value="SUBMIT" onclick="finish(this)"  class="button"> //type="submit"
+        </form>
+      </div>
+    </div>
+
+
 <script>
 
+//  jsonData = '[ {"_id": "1234455667","foodName" : "chicken tendies" },{"_id": "1111111111","foodName" : "hashbrowns"}]';
+
+  function initData(data)
+  {     
+     s = "";
+     for (i = 0; i < data.length; ++i) {
+         s += "<li><a id=" + data[i]._id + " onclick='selectFood(this)'>";
+         s += data[i].foodName + "</a></li>";
+     }
+     document.getElementById("foodList").innerHTML += s;
+  }
+
+  function finish(child)
+  {
+       email = document.getElementById("email").value;
+  }
+
+
+
+
+
   
-
-
-
-
-
-
-
-
 
     function selectFood(el) {
         var element = document.getElementById(el.id);
         document.getElementById("selectedFood").innerHTML += 
 "<li><a id='" + el.id + "' onclick='unselectFood(this)'>" + element.innerHTML + "</a></li>";
 
-        element.parentNode.removeChild(element);
+        element.parentNode.remove();
     }
 
     function unselectFood(el) {
@@ -51,7 +77,7 @@
         document.getElementById("foodList").innerHTML +=
 "<li><a id='" + el.id + "' onclick='selectFood(this)'>" + element.innerHTML + "</a></li>";
 
-     element.parentNode.removeChild(element);
+     element.parentNode.remove();
     }
 
 
@@ -62,6 +88,13 @@
 
 
 
+      fetch('http://localhost:3000/menu', {
+    method: 'get'
+}).then(function(response){
+    response.json().then(function(data){
+        initData(data);             
+    })
+});
 
 
       function searchSort() {
@@ -82,24 +115,7 @@
     }
     }
     }
-
-
-fetch('http://localhost:3000/menu', {
-    method: 'get'
-}).then(function(response){
-    response.json().then(function(data){
-        console.log(data);
-    })
-});
-
-function submit(preference){
-fetch('http://localhost:3000/submit', {
-    method: 'post'
-    body: JSON.stringify();
-}).then(function(response) {
     
-}
-
 
 </script>
 
